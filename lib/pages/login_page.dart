@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -61,13 +60,7 @@ class _LoginPageState extends State<LoginPage> {
             minWidth: 200.0,
             height: 42.0,
             onPressed: () {
-              if (_formKey.currentState.validate()) {
-                Scaffold
-                    .of(context)
-                    .showSnackBar(SnackBar(content: Text("Validate")));
-              } else {
-                Navigator.pushNamed(context, '/home');
-              }
+              Navigator.pushNamed(context, '/home');
             },
             color: Colors.lightGreen,
             splashColor: Colors.green,
@@ -79,31 +72,31 @@ class _LoginPageState extends State<LoginPage> {
     final forgotButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: FlatButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/forgotPassword');
+        },
         child: Text('Forgot password?'),
       ),
     );
 
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Form(
-          key: _formKey,
-          child: Center(
-              child: ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
-            children: <Widget>[
-              logo,
-              logoBottom,
-              SizedBox(height: 38.0),
-              email,
-              SizedBox(height: 28.0),
-              password,
-              SizedBox(height: 50.0),
-              loginButton,
-              forgotButton
-            ],
-          )),
-        ));
+      backgroundColor: Colors.white,
+      body: Center(
+          child: ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.only(left: 24.0, right: 24.0),
+        children: <Widget>[
+          logo,
+          logoBottom,
+          SizedBox(height: 38.0),
+          email,
+          SizedBox(height: 28.0),
+          password,
+          SizedBox(height: 50.0),
+          loginButton,
+          forgotButton
+        ],
+      )),
+    );
   }
 }
