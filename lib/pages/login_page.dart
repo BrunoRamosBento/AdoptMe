@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
 
   @override
   _LoginPageState createState() => new _LoginPageState();
@@ -20,11 +19,12 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    final logo_bottom = Container(
+    final logoBottom = Container(
       child: Text(
         'Sign in to continue',
         textAlign: TextAlign.left,
-        style: TextStyle(color: Colors.grey, fontSize: 24.0, fontWeight: FontWeight.normal),
+        style: TextStyle(
+            color: Colors.grey, fontSize: 24.0, fontWeight: FontWeight.normal),
       ),
     );
 
@@ -62,6 +62,10 @@ class _LoginPageState extends State<LoginPage> {
             height: 42.0,
             onPressed: () {
               if (_formKey.currentState.validate()) {
+                Scaffold
+                    .of(context)
+                    .showSnackBar(SnackBar(content: Text("Validate")));
+              } else {
                 Navigator.pushNamed(context, '/home');
               }
             },
@@ -71,6 +75,14 @@ class _LoginPageState extends State<LoginPage> {
             child: Text('Get Started'),
           ),
         ));
+
+    final forgotButton = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: FlatButton(
+        onPressed: () {},
+        child: Text('Forgot password?'),
+      ),
+    );
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -82,13 +94,14 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
               logo,
-              logo_bottom,
+              logoBottom,
               SizedBox(height: 38.0),
               email,
               SizedBox(height: 28.0),
               password,
               SizedBox(height: 50.0),
-              loginButton
+              loginButton,
+              forgotButton
             ],
           )),
         ));
