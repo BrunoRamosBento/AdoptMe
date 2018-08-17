@@ -1,3 +1,4 @@
+import 'package:adopt_me/pages/commonWidgets/PetShowcase.dart';
 import 'package:adopt_me/pages/commonWidgets/PlaceholderWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class _HomePageState extends State<HomePage> {
   int _currentTab = 0;
 
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.deepOrange),
+    PetShowcase(null, Colors.indigo),
     PlaceholderWidget(Colors.indigo),
     PlaceholderWidget(Colors.brown),
   ];

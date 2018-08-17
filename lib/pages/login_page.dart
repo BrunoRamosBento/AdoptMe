@@ -8,8 +8,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+          child: ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(left: 24.0, right: 24.0),
+            children: _buildWidgets(),
+          )),
+    );
+  }
 
+  List<Widget> _buildWidgets() {
     final logo = Container(
       child: Text(
         'Welcome,',
@@ -79,24 +89,16 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-          child: ListView(
-        shrinkWrap: true,
-        padding: EdgeInsets.only(left: 24.0, right: 24.0),
-        children: <Widget>[
-          logo,
-          logoBottom,
-          SizedBox(height: 38.0),
-          email,
-          SizedBox(height: 28.0),
-          password,
-          SizedBox(height: 50.0),
-          loginButton,
-          forgotButton
-        ],
-      )),
-    );
+    return <Widget>[
+      logo,
+      logoBottom,
+      SizedBox(height: 38.0),
+      email,
+      SizedBox(height: 28.0),
+      password,
+      SizedBox(height: 50.0),
+      loginButton,
+      forgotButton
+    ];
   }
 }
