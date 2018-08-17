@@ -14,6 +14,9 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  assets:
+    - assets/
+
   fonts:
     - family: Nunito
       fonts:
