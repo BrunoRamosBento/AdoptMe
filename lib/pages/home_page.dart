@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _children = [
     PetShowcase(),
+    PlaceholderWidget(Colors.orange),
     NearYou(),
     PlaceholderWidget(Colors.brown),
   ];
@@ -28,8 +29,9 @@ class _HomePageState extends State<HomePage> {
           currentIndex: _currentTab,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.assignment),
-                title: Text('Organizations')),
+                icon: Icon(Icons.home), title: Text('Home')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.assignment), title: Text('Organizations')),
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_searching), title: Text('Near You')),
             BottomNavigationBarItem(
@@ -46,7 +48,8 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildAppBar() {
     return AppBar(
-      title: Center(child: new FlutterLogo(
+      title: Center(
+          child: new FlutterLogo(
         size: 30.0,
         colors: Colors.lightGreen,
       )),
@@ -59,7 +62,8 @@ class _HomePageState extends State<HomePage> {
           }),
       actions: <Widget>[
         new IconButton(
-            icon: Icon(Icons.add_circle_outline, color: Colors.grey, size: 30.0),
+            icon:
+                Icon(Icons.add_circle_outline, color: Colors.grey, size: 30.0),
             onPressed: () {
               //TODO: on click person icon appbar
             })
